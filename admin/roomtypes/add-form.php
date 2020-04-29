@@ -130,7 +130,8 @@ $roles = queryExecute($getRoleQuery, true);
                 price: {
                     required: true,
                     number: true,
-                    maxlength: 10 ,
+                    min :100,
+                    max: 2500
                 },
                 adult: {
                     required: true,
@@ -163,7 +164,8 @@ $roles = queryExecute($getRoleQuery, true);
             messages: {
                 price: {
                     required: "Hãy nhập giá phòng",
-                    maxlength: "Số lượng ký tự tối đa bằng 10 ký tự",
+                    max: "Giá trong khoảng 100 đến 2500",
+                    min:"Giá trong khoảng 100 đến 2500",
                     number: "Hãy nhập số"
                 },
                 adult: {

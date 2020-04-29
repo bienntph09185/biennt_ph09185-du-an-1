@@ -126,6 +126,14 @@ $newsEdit = queryExecute($getnewsEditQuery, false);
                     required: true,
                     maxlength: 191
                 },
+                content: {
+                    required: true,
+                    maxlength: 191,
+                },
+                title: {
+                    required: true,
+                    maxlength: 191,
+                },
                 feature_img: {
                     extension: "png|jpg|jpeg|gif"
                 }
@@ -133,6 +141,14 @@ $newsEdit = queryExecute($getnewsEditQuery, false);
             messages: {
                 name: {
                     required: "Hãy nhập tên người dùng",
+                    maxlength: "Số lượng ký tự tối đa bằng 191 ký tự"
+                },
+                title: {
+                    required: "Hãy nhập tiêu đề",
+                    maxlength: "Số lượng ký tự tối đa bằng 191 ký tự"
+                },
+                content: {
+                    required: "Hãy nhập nội dung",
                     maxlength: "Số lượng ký tự tối đa bằng 191 ký tự"
                 },
                 email: {
