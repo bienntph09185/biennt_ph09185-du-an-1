@@ -172,10 +172,11 @@ $rooms = queryExecute($getroomQuery, true);
 												<div class="booking-form select-black">
 													<label class="collapse input">
 														<input type="text" id="arrival-date" class="input-control border-white" name="checkin" />
-														<?php if (isset($_GET['checkinerr'])) : ?>
-                                                        <span class="text-danger"><?= $_GET['checkinerr'] ?></span>
-                                                    <?php endif ?>								
+																			
 													</label>
+													<?php if (isset($_GET['checkinerr'])) : ?>
+                                                        <span class="text-danger"><?= $_GET['checkinerr'] ?></span>
+                                                    <?php endif ?>			
 												</div>
 											</div>
 											<div class="form-group">
@@ -183,10 +184,10 @@ $rooms = queryExecute($getroomQuery, true);
 												<div class="booking-form select-black">
 													<label class="collapse input">
 														<input type="text" id="departure-date" class="input-control border-white" name="checkout" />
-														<?php if (isset($_GET['checkouterr'])) : ?>
+													</label>
+													<?php if (isset($_GET['checkouterr'])) : ?>
                                                         <span class="text-danger"><?= $_GET['checkouterr'] ?></span>
                                                     <?php endif ?>
-													</label>
 												</div>
 											</div>
 											<div class="form-group select">

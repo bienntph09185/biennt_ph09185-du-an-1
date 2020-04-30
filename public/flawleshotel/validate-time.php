@@ -3,6 +3,8 @@ session_start();
 require_once "utils.php";
 $checkin = isset($_GET['checkin']) ? $_GET['checkin'] : "";
 $checkout = isset($_GET['checkout']) ? $_GET['checkout'] : "";
+$children = isset($_GET['children']) ? $_GET['children'] : "";
+$adult = isset($_GET['adult']) ? $_GET['adult'] : "";
 $diff = strtotime($checkout)-strtotime($checkin);
 $total_date = round($diff/(60*60*24));
 $today = date("m/d/Y");
@@ -32,7 +34,7 @@ if($checkinerr.$checkouterr!=""){
     die;
 }
 else{
-    header("location: check-available.php?checkin=$checkin&&checkout=$checkout");
+    header("location: check-available.php?checkin=$checkin&&checkout=$checkout&&children=$children&&adult=$adult");
     die;
 }
 ?>
