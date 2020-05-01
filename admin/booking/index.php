@@ -10,21 +10,21 @@ if(isset($_GET['checked'])){
                         join room_types r
                         on r.id = b.room_type_id
                         where b.checkin_in = 0
-                        ORDER BY b.id DESC";
+                        ";
 }elseif(isset($_GET['unchecked'])){
     $getBooking = "select b.*, r.name roomname 
                         from booking b
                         join room_types r
                         on r.id = b.room_type_id
                         where b.checkin_in = 2
-                        ORDER BY b.id DESC";
+                        ";
 }else{
     $getBooking = "select b.*, r.name roomname 
                         from booking b
                         join room_types r
                         on r.id = b.room_type_id
                         where b.checkin_in = 1
-                        ORDER BY b.id DESC";
+                        ";
 }
 $bookings = queryExecute($getBooking, true);
 

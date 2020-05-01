@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 28, 2020 lúc 10:33 AM
+-- Thời gian đã tạo: Th5 01, 2020 lúc 10:59 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.2
 
@@ -54,9 +54,13 @@ INSERT INTO `booking` (`id`, `customer_name`, `email`, `address`, `checkin_date`
 (2, 'Nguyễn Tự Biên', 'bienntph09185@fpt.edu.vn', 'Bắc Từ Liêm, Hà Nội', '2020-04-21 17:35:03', '2020-04-22 17:35:07', 2, 3, 1, 'Đây là tin nhắn', '2020-04-26 08:05:24', '123123123123123123123123123123123123123123123123123123', '2020-04-22 17:35:20', 0, 1),
 (37, 'Nguyễn Tự Biên', 'bienntph09185@fpt.edu.vn', 'Xuân Đỉnh Hà Nội', '2020-04-24 00:00:00', '2020-04-25 00:00:00', 2, 2, 1, '', '2020-04-26 08:08:12', 'OK bạn ơi', '0000-00-00 00:00:00', 0, 1),
 (38, 'Nguyễn Tự Biên', 'bienntph09185@fpt.edu.vn', 'Xuân Đỉnh Hà Nội', '2020-04-24 00:00:00', '2020-04-25 00:00:00', 2, 2, 1, '', '2020-04-26 08:08:56', 'xin lỗi bạn ơi', '0000-00-00 00:00:00', 2, 1),
-(41, 'Nguyễn Tự Biên', 'nguyentubien040796@gmail.com', 'Tây Tựu Hà Nội', '2020-04-25 00:00:00', '2020-04-27 00:00:00', 2, 2, 1, '', '2020-04-26 08:10:24', '', '0000-00-00 00:00:00', 1, 0),
+(41, 'Nguyễn Tự Biên', 'nguyentubien040796@gmail.com', 'Tây Tựu Hà Nội', '2020-04-25 00:00:00', '2020-04-27 00:00:00', 2, 2, 1, '', '2020-04-30 07:54:33', 'xin lỗi vì đã không duyệt', '0000-00-00 00:00:00', 2, 1),
 (42, 'Nguyễn Tự Biên', 'nguyentubien040796@gmail.com', 'Tây Tựu Hà Nội', '2020-04-26 00:00:00', '2020-04-27 00:00:00', 2, 2, 10, '', '2020-04-26 08:20:45', 'OKE rồi nhé', '0000-00-00 00:00:00', 0, 1),
-(43, 'Nguyễn Tự Biên', 'bienntph09185@fpt.edu.vn', '125 WEST 26TH STREET  SUITE 600 NEW YORK, NY 10011', '2020-04-27 00:00:00', '2020-04-28 00:00:00', 2, 2, 1, 'Cho tôi một phòng gấp', '2020-04-27 04:11:28', '', '0000-00-00 00:00:00', 1, 0);
+(43, 'Nguyễn Tự Biên', 'bienntph09185@fpt.edu.vn', '125 WEST 26TH STREET  SUITE 600 NEW YORK, NY 10011', '2020-04-27 00:00:00', '2020-04-28 00:00:00', 2, 2, 1, 'Cho tôi một phòng gấp', '2020-04-27 04:11:28', '', '0000-00-00 00:00:00', 1, 0),
+(44, 'Nguyễn Tự Biên', 'nguyentubien040796@gmail.com', 'Pháp Vân Cầu Giẽ', '2020-04-30 00:00:00', '2020-05-05 00:00:00', 2, 2, 10, 'Mừng giải phóng miền nam', '2020-04-30 07:55:59', 'Ok rồi bạn ơi', '0000-00-00 00:00:00', 0, 1),
+(45, 'Nguyễn Tự Biên', 'bienntph09185@fpt.edu.vn', 'Ha Noi', '1970-01-01 00:00:00', '1970-01-01 00:00:00', 1, 1, 7, '1234231', '2020-05-01 08:33:33', '', '0000-00-00 00:00:00', 1, 0),
+(52, 'Nguyễn Tự Biên', 'bienntph09185@fpt.edu.vn', 'Tây Tựu Thành Phố Hồ Chí Minh', '2020-05-01 00:00:00', '2020-05-02 00:00:00', 2, 2, 10, 'Mừng giải phóng miền nam', '2020-05-01 08:51:34', '', '0000-00-00 00:00:00', 1, 0),
+(53, 'Nguyễn Tự Biên', 'bienntph09185@fpt.edu.vn', 'Tây Tựu Thành Phố Hồ Chí Minh', '2020-05-01 00:00:00', '2020-05-02 00:00:00', 2, 2, 10, 'Mừng giải phóng miền nam', '2020-05-01 08:51:34', '', '0000-00-00 00:00:00', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -450,7 +454,7 @@ ALTER TABLE `web_setting`
 -- AUTO_INCREMENT cho bảng `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT cho bảng `contact`

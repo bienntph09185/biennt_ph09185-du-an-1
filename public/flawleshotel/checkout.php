@@ -172,38 +172,38 @@ $rooms = queryExecute($getRoomQuery, false);
 							</header><!-- /.box-heading -->
 							<div class="box-body">
 								<div class="col-left">
-									<form action="save-booking.php" method="post" enctype="multipart/form-data">
+									<form action="save-booking.php" method="post" id="booking-form">
 										<input type="hidden" name="id" value="<?= $rooms['id'] ?>">
 										<div class="form-group">
-											<label class="label-control">Email<span class="start">*</span></label>
+											<label class="label-control">Email<span >*</span></label>
 											<input type="text" class="input-control" name="email">
 										</div>
 										<div class="form-group">
-											<label class="label-control">Checkin<span class="start">*</span></label>
+											<label class="label-control">Checkin<span>*</span></label>
 											<input type="text" id="form-checkin" value="<?= $checkin ?>" name="checkin" class="datepicker input-control">
 										</div>
 										<div class="form-group">
-											<label class="label-control">Checkout<span class="start">*</span></label>
-											<input type="text" value="<?= $checkout ?>" name="checkout" class="datepicker input-control">
+											<label class="label-control">Checkout<span>*</span></label>
+											<input type="text" value="<?= $checkout ?>" name="checkout" class="datepicker input-control" >
 										</div>
 										<div class="form-group">
-											<label class="label-control">Full name<span class="start">*</span></label>
+											<label class="label-control">Full name<span>*</span></label>
 											<input type="text" class="input-control" name="customer_name">
 										</div>
 										<div class="form-group">
-											<label class="label-control">Số người lớn<span class="start">*</span></label>
-											<input class="input-control" type="text" name="adult" id="form-adults" value="<?= $rooms['adult'] ?> NGƯỜI LỚN" disabled>
+											<label class="label-control">Số người lớn<span >*</span></label>
+											<input class="input-control" type="text" name="adult" value="<?= $rooms['adult'] ?> NGƯỜI LỚN" disabled>
 										</div>
 										<div class="form-group">
-											<label class="label-control">Số trẻ nhỏ<span class="start">*</span></label>
-											<input class="input-control" type="text" name="children" id="form-adults" value="<?= $rooms['children'] ?> TRẺ NHỎ" disabled>
+											<label class="label-control">Số trẻ nhỏ<span >*</span></label>
+											<input class="input-control" type="text" name="children" value="<?= $rooms['children'] ?> TRẺ NHỎ" disabled>
 										</div>
 										<div class="form-group">
-											<label class="label-control">Address<span class="start">*</span></label>
+											<label class="label-control">Address<span >*</span></label>
 											<input type="text" class="input-control" name="address">
 										</div>
 										<div class="form-group">
-											<label class="label-control">Lời nhắn<span class="start">*</span></label>
+											<label class="label-control">Lời nhắn<span >*</span></label>
 											<input type="text" class="input-control" name="message">
 										</div>
 										<input type="hidden" name="check_in" value="1">
@@ -281,17 +281,56 @@ $rooms = queryExecute($getRoomQuery, false);
 	<script type="text/javascript" src="js/classie.js"></script>
 	<script type="text/javascript" src="js/mlpushmenu.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
-
-	<script type="text/javascript">
-		$(function() {
-			"use strict";
-			$("#arrival-date, #departure-date").datepicker({
-				// showOn: "button",
-				// buttonImage: "images/calendar.gif",
-				// buttonImageOnly: true
-			});
-		});
-	</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+	  <script>
+        $('#booking-form').validate({
+            rules: {
+                email: {
+                required: true,
+                maxlength: 191,
+                email: true,
+               
+            },
+                address: {
+                    required: true,
+                    maxlength: 191,
+					minlength: 10
+                },
+				message: {
+                    required: true,
+                    maxlength: 191,
+					minlength: 20
+                },
+                customer_name: {
+                    required: true,
+					maxlength: 50 ,
+					minlength: 10                 
+                }
+            },
+            messages: {
+                email: {
+                    required: "Hãy nhập email",
+					email: "Không đúng định dạng email",
+                    minlength: "Nội dung quá ngắn hãy nhập thêm"
+                },
+                address: {
+                    required: "Hãy nhập địa chỉ ",
+                    maxlength: "Số lượng ký tự tối đa bằng 191 ký tự" ,
+					minlength : "Nhập trên 10 kí tự"               
+                },
+				message: {
+                    required: "Hãy nhập nội dung lời nhắn ",
+                    maxlength: "Số lượng ký tự tối đa bằng 191 ký tự",
+					minlength : "Nhập trên 20 kí tự"    
+                },
+                customer_name: {
+                    required: "Hãy nhập tên ",
+                    maxlength: "Số lượng kí tự trong khoảng từ 10 đến 50 kí tự",  
+					minlength: "Số lượng kí tự trong khoảng từ 10 đến 50 kí tự" 
+                }
+            }
+        });
+    </script>
 </body>
 
 <!-- Mirrored from envato.megadrupal.com/html/flawleshotel/checkout.php by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 21 Mar 2020 05:48:12 GMT -->

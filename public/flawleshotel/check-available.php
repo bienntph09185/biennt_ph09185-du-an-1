@@ -13,9 +13,8 @@ if ($adults !== "" && $children !== "") {
 							or r.children like '%$children%') ";
 }
 $rooms = queryExecute($getRoomQuery, true);
-$getAllRoom = "select * from room_types";
-$allRoom = queryExecute($getAllRoom, true);
-$total_room = count($allRoom);
+
+$total_room = count($rooms);
 
 ?>
 <!doctype html>
