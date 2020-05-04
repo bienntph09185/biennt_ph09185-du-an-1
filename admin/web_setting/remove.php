@@ -18,11 +18,11 @@ $id = isset($_GET['id']) ? $_GET['id'] : -1;
 $getRemovewebsettingQuery = "select * from web_setting where id = $id";
 $removewebsetting = queryExecute($getRemovewebsettingQuery, false);
 if(!$removewebsetting){
-    header("location: " . ADMIN_URL . "web_setting?msg=Tài khoản không tồn tại");
+    header("location: " . ADMIN_URL . "web_setting?msg=WebSettings không tồn tại");
     die;
 }
 
 $removewebsettingQuery = "delete from web_setting where id = $id";
 queryExecute($removewebsettingQuery, false);
-header("location: " . ADMIN_URL . "web_setting?msg=Xóa tài khoản thành công");
+header("location: " . ADMIN_URL . "web_setting?msg=Xóa thành công");
 die;

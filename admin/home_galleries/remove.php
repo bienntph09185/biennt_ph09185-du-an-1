@@ -21,12 +21,6 @@ if(!$removehome_galleries){
     header("location: " . ADMIN_URL . "home_galleries?msg=Loại dịch vụ không tồn tại");
     die;
 }
-
-if($removeUser['role_id'] >= $_SESSION[AUTH]['role_id']){
-    header("location: " . ADMIN_URL . "users?msg=Không đủ quyền hạn thực hiện hành động này");
-    die;
-}
-
 $removehome_galleriesQuery = "delete from home_galleries where id = $id";
 queryExecute($removehome_galleriesQuery, false);
 header("location: " . ADMIN_URL . "home_galleries?msg=Xóa thành công");

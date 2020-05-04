@@ -18,16 +18,10 @@ $id = isset($_GET['id']) ? $_GET['id'] : -1;
 $getRemoveroom_galleriesQuery = "select * from room_galleries where id = $id";
 $removeroom_galleries = queryExecute($getRemoveroom_galleriesQuery, false);
 if(!$removeroom_galleries){
-    header("location: " . ADMIN_URL . "room_galleries?msg=Loại dịch vụ không tồn tại");
+    header("location: " . ADMIN_URL . "room_galleries?msg=Room Galleries không tồn tại");
     die;
 }
-
-if($removeUser['role_id'] >= $_SESSION[AUTH]['role_id']){
-    header("location: " . ADMIN_URL . "users?msg=Không đủ quyền hạn thực hiện hành động này");
-    die;
-}
-
 $removeroom_galleriesQuery = "delete from room_galleries where id = $id";
 queryExecute($removeroom_galleriesQuery, false);
-header("location: " . ADMIN_URL . "room_galleries?msg=Xóa loại dịch vụ thành công");
+header("location: " . ADMIN_URL . "room_galleries?msg=Xóa thành công");
 die;

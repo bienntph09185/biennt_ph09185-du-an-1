@@ -18,16 +18,10 @@ $id = isset($_GET['id']) ? $_GET['id'] : -1;
 $getRemoveroomserviceQuery = "select * from roomservice where id = $id";
 $removeroomservice = queryExecute($getRemoveroomserviceQuery, false);
 if(!$removeroomservice){
-    header("location: " . ADMIN_URL . "roomservice?msg=Loại dịch vụ không tồn tại");
+    header("location: " . ADMIN_URL . "roomservice?msg=Loại dịch vụ  không tồn tại");
     die;
 }
-
-//if($removeUser['role_id'] >= $_SESSION[AUTH]['role_id']){
-//    header("location: " . ADMIN_URL . "users?msg=Không đủ quyền hạn thực hiện hành động này");
-//    die;
-//}
-
 $removeroomserviceQuery = "delete from roomservice where id = $id";
 queryExecute($removeroomserviceQuery, false);
-header("location: " . ADMIN_URL . "roomservice?msg=Xóa loại dịch vụ thành công");
+header("location: " . ADMIN_URL . "roomservice?msg=Xóa thành công");
 die;

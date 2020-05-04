@@ -18,7 +18,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : -1;
 $getRemoveroom_typesQuery = "select * from room_types where id = $id";
 $removeroom_types = queryExecute($getRemoveroom_typesQuery, false);
 if(!$removeroom_types){
-    header("location: " . ADMIN_URL . "room_types?msg=Loại dịch vụ không tồn tại");
+    header("location: " . ADMIN_URL . "room_types?msg=Testimonial không tồn tại");
     die;
 }
 
@@ -29,5 +29,5 @@ if(!$removeroom_types){
 
 $removeroom_typesQuery = "delete from room_types where id = $id";
 queryExecute($removeroom_typesQuery, false);
-header("location: " . ADMIN_URL . "roomtypes?msg=Xóa loại dịch vụ thành công");
+header("location: " . ADMIN_URL . "roomtypes?msg=Xóa thành công");
 die;

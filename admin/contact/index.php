@@ -148,7 +148,7 @@ $contact = queryExecute($getcontactQuery, true);
                 var redirectUrl = $(this).attr('href');
                 Swal.fire({
                     title: 'Thông báo!',
-                    text: "Bạn có chắc chắn muốn xóa tài khoản này?",
+                    text: "Bạn có chắc chắn muốn xóa?",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',

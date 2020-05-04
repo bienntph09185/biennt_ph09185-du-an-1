@@ -13,5 +13,5 @@ if(!$booking){
 }
 $removeBooking = "delete from booking where id = $id";
 queryExecute($removeBooking, false);
-header("location: ".ADMIN_URL."booking?msg=Xóa đơn thành công!")
+header("location: ".ADMIN_URL."booking?msg=Bạn đã xóa đơn thành công!")
 ?>

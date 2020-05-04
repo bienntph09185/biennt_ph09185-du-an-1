@@ -18,16 +18,10 @@ $id = isset($_GET['id']) ? $_GET['id'] : -1;
 $getRemovenewsQuery = "select * from news where id = $id";
 $removenews = queryExecute($getRemovenewsQuery, false);
 if(!$removenews){
-    header("location: " . ADMIN_URL . "news?msg=Loại dịch vụ không tồn tại");
+    header("location: " . ADMIN_URL . "news?msg=Tin tức không tồn tại");
     die;
 }
-
-if($removeUser['role_id'] >= $_SESSION[AUTH]['role_id']){
-    header("location: " . ADMIN_URL . "users?msg=Không đủ quyền hạn thực hiện hành động này");
-    die;
-}
-
 $removenewsQuery = "delete from news where id = $id";
 queryExecute($removenewsQuery, false);
-header("location: " . ADMIN_URL . "news?msg=Xóa loại dịch vụ thành công");
+header("location: " . ADMIN_URL . "news?msg=Xóa tin tức thành công");
 die;
