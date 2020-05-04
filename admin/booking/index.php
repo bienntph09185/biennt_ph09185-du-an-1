@@ -4,14 +4,14 @@ require_once '../../config/utils.php';
 checkAdminLoggedIn();
 
 // lấy danh sách booking
-if(isset($_GET['checked'])){
+if(isset($_GET['accept'])){
     $getBooking = "select b.*, r.name roomname 
                         from booking b
                         join room_types r
                         on r.id = b.room_type_id
                         where b.checkin_in = 0
                         ";
-}elseif(isset($_GET['unchecked'])){
+}elseif(isset($_GET['cancel'])){
     $getBooking = "select b.*, r.name roomname 
                         from booking b
                         join room_types r
@@ -82,8 +82,8 @@ $bookings = queryExecute($getBooking, true);
                                             <th>Lời nhắn</th>
                                             <th>
                                                 <a href="<?= ADMIN_URL . 'booking' ?>" class="btn btn-outline-primary  btn-sm"></i>Chờ xác nhận</a>
-                                                <a href="<?= ADMIN_URL . 'booking?unchecked' ?>" class="btn btn-outline-secondary  btn-sm"></i>Không xác nhận</a>
-                                                <a href="<?= ADMIN_URL . 'booking?checked' ?>" class="btn btn-outline-dark btn-sm"></i> Đã xác nhận</a>
+                                                <a href="<?= ADMIN_URL . 'booking?cancel' ?>" class="btn btn-outline-secondary  btn-sm"></i>Không xác nhận</a>
+                                                <a href="<?= ADMIN_URL . 'booking?accept' ?>" class="btn btn-outline-dark btn-sm"></i> Đã xác nhận</a>
                                             </th>
                                         </tr>
                                     </thead>
