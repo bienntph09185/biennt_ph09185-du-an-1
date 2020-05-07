@@ -1,9 +1,29 @@
 <?php
 session_start();
 require_once 'utils.php';
-$getnewsQuery = "select * from news";
-$news = queryExecute($getnewsQuery, true);
+// get data from room_types other rooms
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+$getNewsQuery =  "select c.*, u.name as author from news c join users u
+on c.author_id = u.id";
+$total_records = count(queryExecute($getNewsQuery, true));
+$limit = 3;
+// tổng số trang
+$total_page = ceil($total_records / $limit);
 
+// Tìm Start
+$start =  ($current_page - 1) * $limit;
+
+// Giới hạn current_page trong khoảng 1 đến total_page
+if ($current_page > $total_page) {
+    $current_page = $total_page;
+} else if ($current_page < 1) {
+    $current_page = 1;
+}
+
+// get data from room_types other rooms
+$getNewsQuery .= " LIMIT $start, $limit";
+$news = queryExecute($getNewsQuery, true);
+  
 ?>
 <!doctype html>
 <html lang="en">
@@ -175,13 +195,10 @@ $news = queryExecute($getnewsQuery, true);
 									<div class="media-body">
 										<header class="media-header">
 											<div class="meta-header">
-												<span class="time">March 7, 2013 </span>
+												<span class="time"><?=$n['created_at']?> </span>
 												<span class="meta-divider">|</span>
-												<p class="tags-post">
-													Tag:
-													<a href="#" class="tag-post">Toutrism</a>,
-													<a href="#" class="tag-post">Photography</a>,
-													<a href="#" class="tag-post">Flawles</a>
+												<p class="tags-post">Người Đăng:
+												<?=$n['author']?>
 												</p>
 											</div>
 											<h3 class="h4"><a href="blog-detail.php?id=<?= $n['id']?>"><?=$n['title']?></a></h3>
@@ -196,13 +213,33 @@ $news = queryExecute($getnewsQuery, true);
 								</article>
 								<?php endforeach; ?>
 							</div>
-							<ul class="pagination">
-								<li class="first"><a href="#">First</a></li>
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li class="last"><a href="#">Last</a></li>
-							</ul>
+							<div class="text-center">
+                                    <ul class="pagination ">
+                                        <?php
+                                        // PHẦN HIỂN THỊ PHÂN TRANG
+                                        // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
+                                        if ($current_page > 1 && $total_page > 1) {
+                                            echo '<li class="page-item"><a class="page-link" href="./blog.php?page=' . ($current_page - 1) . '">Previous</a></li>';
+                                        }
+
+                                        // Lặp khoảng giữa
+                                        for ($i = 1; $i <= $total_page; $i++) {
+                                            // Nếu là trang hiện tại thì hiển thị thẻ span
+                                            // ngược lại hiển thị thẻ a
+                                            if ($i == $current_page) {
+                                                echo '<li class="page-item active"><a class="page-link" href="./blog.php?page=' . $i . '">' . $i . '</a></li>';
+                                            } else {
+                                                echo '<li class="page-item"><a class="page-link" href="./blog.php?page=' . $i . '">' . $i . '</a></li>';
+                                            }
+                                        }
+
+                                        // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                                        if ($current_page < $total_page && $total_page > 1) {
+                                            echo '<li class="page-item"><a class="page-link" href="./blog.php?page=' . ($current_page + 1) . '">Next</a></li>';
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>
 						</div><!-- /.md-main -->
 						<aside class="grid_3 md-sidebar md-sidebar-pt">
 							<section class="box-sidebar">

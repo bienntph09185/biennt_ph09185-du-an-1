@@ -5,11 +5,32 @@ require_once './config/utils.php';
 $getWebSettingQuery = "select * from web_setting where status = 1";
 $webSetting = queryExecute($getWebSettingQuery, false);
 
-$getRoomQuery = "select * from room_types where status = 1";
-$rooms = queryExecute($getRoomQuery, true);
 
 $gethomeQuery = "select * from home_galleries";
 $home = queryExecute($gethomeQuery, true);
+
+// get data from room_types other rooms
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+$getRoomQuery = "select * from room_types";
+$total_records = count(queryExecute($getRoomQuery, true));
+
+$limit = 3;
+// tổng số trang
+$total_page = ceil($total_records / $limit);
+
+// Tìm Start
+$start =  ($current_page - 1) * $limit;
+
+// Giới hạn current_page trong khoảng 1 đến total_page
+if ($current_page > $total_page) {
+    $current_page = $total_page;
+} else if ($current_page < 1) {
+    $current_page = 1;
+}
+
+// get data from room_types other rooms
+$getRoomQuery = "select * from room_types LIMIT $start, $limit";
+$rooms = queryExecute($getRoomQuery, true);
 
 ?>
 <!doctype html>
@@ -55,12 +76,6 @@ $home = queryExecute($gethomeQuery, true);
 </head>
 
 <body>
-	<!-- PRELOADER -->
-	<div id="preloader">
-		<span class="loader" data-loading-text="loading">
-		</span>
-	</div>
-	<!-- END / PRELOADER -->
 	<div class="md-hotel">
 		<div id="mp-pusher" class="mp-pusher">
 			<!-- Header -->
@@ -326,7 +341,33 @@ $home = queryExecute($gethomeQuery, true);
 									</article>
 								<?php endforeach;?>
 								</div><!-- /.row-article -->
-								
+								<div class="text-center">
+                                    <ul class="pagination">
+                                        <?php
+                                        // PHẦN HIỂN THỊ PHÂN TRANG
+                                        // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
+                                        if ($current_page > 1 && $total_page > 1) {
+                                            echo '<li class="page-item"><a class="page-link" href="./index.php?page=' . ($current_page - 1) . '">Previous</a></li>';
+                                        }
+
+                                        // Lặp khoảng giữa
+                                        for ($i = 1; $i <= $total_page; $i++) {
+                                            // Nếu là trang hiện tại thì hiển thị thẻ span
+                                            // ngược lại hiển thị thẻ a
+                                            if ($i == $current_page) {
+                                                echo '<li class="page-item active"><a class="page-link" href="./index.php?page=' . $i . '">' . $i . '</a></li>';
+                                            } else {
+                                                echo '<li class="page-item"><a class="page-link" href="./index.php?page=' . $i . '">' . $i . '</a></li>';
+                                            }
+                                        }
+
+                                        // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                                        if ($current_page < $total_page && $total_page > 1) {
+                                            echo '<li class="page-item"><a class="page-link" href="./index.php?page=' . ($current_page + 1) . '">Next</a></li>';
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>
 							</div><!-- /.md-sidebar -->
 						</div>
 					</section><!-- /.md-home-body -->

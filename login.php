@@ -15,9 +15,9 @@ require_once "./config/utils.php";
 </head>
 <body>
 	<div class="container">
-		<div class="row">
+		<div class="row pt-3">
 			<div class="col-4 offset-4">
-                <div class="login-logo">
+                <div class="login-logo d-flex justify-content-center">
                     <a href="<?php echo BASE_URL ?>">
                         <img src="<?php echo BASE_URL . 'public/flawleshotel/images/logo.png'?>" alt="" class="img-thumbnail">
 
@@ -35,10 +35,10 @@ require_once "./config/utils.php";
 					</div>
 					<div class="form-group">
 						<label for="password">Password</label>
-						<input type="password" class="form-control" id="password" name="password">
+						<input type="password" class="form-control" id="password" name="password" placeholder="Nhập password">
 					</div>
-					<a href="">Nếu chưa có tài khoản ,nhấp để đăng kí</a>
-                    <div class="d-flex justify-content-center">
+					<a href="register.php" class="text-danger">Nếu chưa có tài khoản ,nhấp để đăng kí</a>
+                    <div class="pt-3 d-flex justify-content-center">
 					    <button type="submit" class="btn btn-primary"> Submit</button>&nbsp;
                         <a href="<?php echo BASE_URL?>" class="btn btn-danger">Cancel</a>
                     </div>

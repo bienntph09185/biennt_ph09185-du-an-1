@@ -18,7 +18,7 @@ time, mark, audio, video {
     border: 0;
     font-size: 100%;
     font: inherit;
-    vertical-align: baseline;
+    vertical-align: baseline
 }
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -125,7 +125,7 @@ input[type="submit"] {
 .grid_2 {width:14.667%;}
 .grid_3 {width:23.0%;}
 .grid_4 {width:31.333%;}
-.grid_5 {width:39.667%; padding-bottom: 25px;}
+.grid_5 {width:39.667%;}
 .grid_6 {width:48.0%;}
 .grid_7 {width:56.333%;}
 .grid_8 {width:64.667%;}
@@ -436,6 +436,11 @@ img  {width: 100%; vertical-align: middle}
 .align-center {text-align: center;}
 
 /* Typography style */
+
+.media {
+    padding: 30px 0 20px 0;
+}
+
 .tags-post > a     {color: #A29061;}
 .tags-post > a:hover{color: #242424;}
 .media-header-big {
@@ -457,6 +462,11 @@ h6,.h6 {font-size: 14px;}
 .media-header {
     color: #242424;
 }
+
+.media-header > a{
+    font-size: 45px;
+}
+
 .media-header:hover {
     color: #a29061;
 }

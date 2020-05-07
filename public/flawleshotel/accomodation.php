@@ -1,9 +1,28 @@
 <?php
 session_start();
 require_once 'utils.php';
-$getroomQuery = "select * from room_types";
-$rooms = queryExecute($getroomQuery, true);
-?>
+// get data from room_types other rooms
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+$getRoomQuery = "select * from room_types";
+$total_records = count(queryExecute($getRoomQuery, true));
+
+$limit = 4;
+// tổng số trang
+$total_page = ceil($total_records / $limit);
+
+// Tìm Start
+$start =  ($current_page - 1) * $limit;
+
+// Giới hạn current_page trong khoảng 1 đến total_page
+if ($current_page > $total_page) {
+    $current_page = $total_page;
+} else if ($current_page < 1) {
+    $current_page = 1;
+}
+
+// get data from room_types other rooms
+$getRoomQuery = "select * from room_types LIMIT $start, $limit";
+$rooms = queryExecute($getRoomQuery, true);?>
 <!doctype html>
 <html lang="en">
 
@@ -245,6 +264,33 @@ $rooms = queryExecute($getroomQuery, true);
 								</div>
 								<?php endforeach; ?>
 							</div>
+							<div class="text-center">
+                                    <ul class="pagination ">
+                                        <?php
+                                        // PHẦN HIỂN THỊ PHÂN TRANG
+                                        // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
+                                        if ($current_page > 1 && $total_page > 1) {
+                                            echo '<li class="page-item"><a class="page-link" href="./accomodation.php?page=' . ($current_page - 1) . '">Previous</a></li>';
+                                        }
+
+                                        // Lặp khoảng giữa
+                                        for ($i = 1; $i <= $total_page; $i++) {
+                                            // Nếu là trang hiện tại thì hiển thị thẻ span
+                                            // ngược lại hiển thị thẻ a
+                                            if ($i == $current_page) {
+                                                echo '<li class="page-item active"><a class="page-link" href="./accomodation.php?page=' . $i . '">' . $i . '</a></li>';
+                                            } else {
+                                                echo '<li class="page-item"><a class="page-link" href="./accomodation.php?page=' . $i . '">' . $i . '</a></li>';
+                                            }
+                                        }
+
+                                        // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                                        if ($current_page < $total_page && $total_page > 1) {
+                                            echo '<li class="page-item"><a class="page-link" href="./accomodation.php?page=' . ($current_page + 1) . '">Next</a></li>';
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>
 						</section>
 					</div><!-- /.md-accomodation -->
 				</section><!-- /.md-wrapper  -->
