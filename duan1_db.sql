@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 01, 2020 lúc 10:59 AM
+-- Thời gian đã tạo: Th5 07, 2020 lúc 07:53 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.2
 
@@ -58,7 +58,6 @@ INSERT INTO `booking` (`id`, `customer_name`, `email`, `address`, `checkin_date`
 (42, 'Nguyễn Tự Biên', 'nguyentubien040796@gmail.com', 'Tây Tựu Hà Nội', '2020-04-26 00:00:00', '2020-04-27 00:00:00', 2, 2, 10, '', '2020-04-26 08:20:45', 'OKE rồi nhé', '0000-00-00 00:00:00', 0, 1),
 (43, 'Nguyễn Tự Biên', 'bienntph09185@fpt.edu.vn', '125 WEST 26TH STREET  SUITE 600 NEW YORK, NY 10011', '2020-04-27 00:00:00', '2020-04-28 00:00:00', 2, 2, 1, 'Cho tôi một phòng gấp', '2020-04-27 04:11:28', '', '0000-00-00 00:00:00', 1, 0),
 (44, 'Nguyễn Tự Biên', 'nguyentubien040796@gmail.com', 'Pháp Vân Cầu Giẽ', '2020-04-30 00:00:00', '2020-05-05 00:00:00', 2, 2, 10, 'Mừng giải phóng miền nam', '2020-04-30 07:55:59', 'Ok rồi bạn ơi', '0000-00-00 00:00:00', 0, 1),
-(45, 'Nguyễn Tự Biên', 'bienntph09185@fpt.edu.vn', 'Ha Noi', '1970-01-01 00:00:00', '1970-01-01 00:00:00', 1, 1, 7, '1234231', '2020-05-01 08:33:33', '', '0000-00-00 00:00:00', 1, 0),
 (52, 'Nguyễn Tự Biên', 'bienntph09185@fpt.edu.vn', 'Tây Tựu Thành Phố Hồ Chí Minh', '2020-05-01 00:00:00', '2020-05-02 00:00:00', 2, 2, 10, 'Mừng giải phóng miền nam', '2020-05-01 08:51:34', '', '0000-00-00 00:00:00', 1, 0),
 (53, 'Nguyễn Tự Biên', 'bienntph09185@fpt.edu.vn', 'Tây Tựu Thành Phố Hồ Chí Minh', '2020-05-01 00:00:00', '2020-05-02 00:00:00', 2, 2, 10, 'Mừng giải phóng miền nam', '2020-05-01 08:51:34', '', '0000-00-00 00:00:00', 1, 0);
 
@@ -113,10 +112,10 @@ CREATE TABLE `home_galleries` (
 --
 
 INSERT INTO `home_galleries` (`id`, `name`, `img_url`, `main_text`, `small_text`, `link_url`, `created_at`) VALUES
-(1, 'Slide', 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-1.jpg', 'Đây là Slide của chúng tôi', 'Đây là small text', 'public/flawleshotel/blog.php', '2020-04-22 09:44:22'),
-(5, 'Phòng Vip', 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-2.jpg', 'Hinh anh noi bat cua khach san', 'Hinh anh dep cua khach san', 'public/flawleshotel/blog.php', '0000-00-00 00:00:00'),
-(7, 'Kaisuke Honda', 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-3.jpg', '<p>Hình ảnh của khách sạn về đêm , những khoảnh khắc đẹp nhất.....</p>', 'hình ảnh đẹp của khách sạn', 'public/flawleshotel/blog.php', '2020-04-26 21:33:00'),
-(8, 'Yamaha', 'http://localhost/du-an-1/public/flawleshotel/img/bg-contact.jpg', '<p>Phòng đẹp là một lợi thế của chúng tôi</p>', 'Hình ảnh phòng tiếp khách của chúng tôi', 'http://localhost/du-an-1/public/flawleshotel/blog.php', '1970-01-01 01:00:00');
+(1, 'Slide', 'public/flawleshotel/img/slide/slide-1.jpg', 'Đây là Slide của chúng tôi', 'Đây là small text', 'public/flawleshotel/blog.php', '2020-04-22 09:44:22'),
+(5, 'Phòng Vip', 'public/flawleshotel/img/slide/slide-2.jpg', 'Hinh anh noi bat cua khach san', 'Hinh anh dep cua khach san', 'public/flawleshotel/blog.php', '0000-00-00 00:00:00'),
+(7, 'Kaisuke Honda', 'public/flawleshotel/img/slide/slide-3.jpg', '<p>Hình ảnh của khách sạn về đêm , những khoảnh khắc đẹp nhất.....</p>', 'hình ảnh đẹp của khách sạn', 'public/flawleshotel/blog.php', '2020-04-26 21:33:00'),
+(8, 'Yamaha', 'public/flawleshotel/img/bg-contact.jpg', '<p>Phòng đẹp là một lợi thế của chúng tôi</p>', 'Hình ảnh phòng tiếp khách của chúng tôi', 'http://localhost/du-an-1/public/flawleshotel/blog.php', '1970-01-01 01:00:00');
 
 -- --------------------------------------------------------
 
@@ -182,31 +181,31 @@ CREATE TABLE `room_galleries` (
 --
 
 INSERT INTO `room_galleries` (`id`, `room_id`, `img_url`) VALUES
-(1, 1, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-4.jpg'),
-(2, 1, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-5.jpg'),
-(3, 1, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-1.jpg'),
-(4, 1, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-2.jpg'),
-(5, 1, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-3.jpg'),
-(6, 10, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-1.jpg'),
-(9, 10, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-2.jpg'),
-(10, 10, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-3.jpg'),
-(11, 10, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-4.jpg'),
-(12, 7, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-1.jpg'),
-(13, 7, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-2.jpg'),
-(14, 7, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-3.jpg'),
-(15, 7, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-4.jpg'),
-(16, 8, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-1.jpg'),
-(17, 8, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-2.jpg'),
-(18, 8, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-3.jpg'),
-(19, 8, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-4.jpg'),
-(20, 9, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-1.jpg'),
-(21, 9, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-2.jpg'),
-(22, 9, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-3.jpg'),
-(23, 9, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-4.jpg'),
-(24, 11, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-1.jpg'),
-(25, 11, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-2.jpg'),
-(26, 11, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-3.jpg'),
-(27, 11, 'http://localhost/du-an-1/public/flawleshotel/img/slide/slide-4.jpg');
+(1, 1, 'public/flawleshotel/img/slide/slide-4.jpg'),
+(2, 1, 'public/flawleshotel/img/slide/slide-5.jpg'),
+(3, 1, 'public/flawleshotel/img/slide/slide-1.jpg'),
+(4, 1, 'public/flawleshotel/img/slide/slide-2.jpg'),
+(5, 1, 'public/flawleshotel/img/slide/slide-3.jpg'),
+(6, 10, 'public/flawleshotel/img/slide/slide-1.jpg'),
+(9, 10, 'public/flawleshotel/img/slide/slide-2.jpg'),
+(10, 10, 'public/flawleshotel/img/slide/slide-3.jpg'),
+(11, 10, 'public/flawleshotel/img/slide/slide-4.jpg'),
+(12, 7, 'public/flawleshotel/img/slide/slide-1.jpg'),
+(13, 7, 'public/flawleshotel/img/slide/slide-2.jpg'),
+(14, 7, 'public/flawleshotel/img/slide/slide-3.jpg'),
+(15, 7, 'public/flawleshotel/img/slide/slide-4.jpg'),
+(16, 7, 'public/flawleshotel/img/slide/slide-1.jpg'),
+(17, 8, 'public/flawleshotel/img/slide/slide-2.jpg'),
+(18, 8, 'public/flawleshotel/img/slide/slide-3.jpg'),
+(19, 8, 'public/flawleshotel/img/slide/slide-4.jpg'),
+(20, 9, 'public/flawleshotel/img/slide/slide-1.jpg'),
+(21, 9, 'public/flawleshotel/img/slide/slide-2.jpg'),
+(22, 9, 'public/flawleshotel/img/slide/slide-3.jpg'),
+(23, 9, 'public/flawleshotel/img/slide/slide-4.jpg'),
+(24, 11, 'public/flawleshotel/img/slide/slide-1.jpg'),
+(25, 11, 'public/flawleshotel/img/slide/slide-2.jpg'),
+(26, 11, 'public/flawleshotel/img/slide/slide-3.jpg'),
+(27, 11, 'public/flawleshotel/img/slide/slide-4.jpg');
 
 -- --------------------------------------------------------
 
@@ -466,7 +465,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT cho bảng `home_galleries`
 --
 ALTER TABLE `home_galleries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `news`
