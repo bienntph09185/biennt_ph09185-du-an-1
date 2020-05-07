@@ -153,7 +153,7 @@ $Galleries = queryExecute($gethomeGallerisQuery, true);
 							<ul id="bxslider" class="bxslider">
 							<?php foreach ($Galleries as $g) : ?>
 								<li class="slideshow-photo">
-									<img src="<?=$g['img_url']?>" alt="">
+									<img src="<?=BASE_URL.$g['img_url']?>" alt="">
 									<!-- Content each item slide -->
 									<div class="description-content">
 										<h2><?=$g['small_text']?></h2>

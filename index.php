@@ -197,7 +197,7 @@ $rooms = queryExecute($getRoomQuery, true);
 				<ul id="md-slide-fade" class="md-slide clearfix">
 				<?php foreach ($home as $h) : ?>
 					<li>
-						<img src="<?= $h['img_url'] ?>" alt="">
+						<img src="<?=BASE_URL .$h['img_url'] ?>" alt="">
 						<div class="content-slide">
 							<div class="home-content">
 								<h2 class="slide-title"><?= $h['small_text'] ?></h2>

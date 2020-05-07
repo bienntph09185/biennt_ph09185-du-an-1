@@ -171,7 +171,7 @@ $roomservice = queryExecute($getroomserviceQuery, true);
 								<div id="sliderBig">
 									<ul>
 										<?php foreach($room_galleries as $rg) :?>
-										<li class="slideshow-photo"><img src="<?=$rg['img_url']?>" alt=""></li>
+										<li class="slideshow-photo"><img src="<?=BASE_URL.$rg['img_url']?>" alt=""></li>
 										<?php endforeach;?>
 									</ul>
 								</div>

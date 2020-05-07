@@ -30,7 +30,7 @@ if(strlen($checkout)==0){
     $checkouterr="Yêu cầu nhập ngày rời đi";
 }
 if($checkinerr.$checkouterr!=""){
-    header("location: http://localhost/du-an-1/index.php?checkinerr=$checkinerr&&checkouterr=$checkouterr");
+    header('location:' .BASE_URL."index.php?checkinerr=$checkinerr&&checkouterr=$checkouterr");
     die;
 }
 else{
