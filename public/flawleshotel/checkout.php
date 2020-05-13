@@ -180,11 +180,11 @@ $rooms = queryExecute($getRoomQuery, false);
 										</div>
 										<div class="form-group">
 											<label class="label-control">Checkin<span>*</span></label>
-											<input type="text" id="form-checkin" value="<?= $checkin ?>" name="checkin" class="datepicker input-control">
+											<input type="text" id="form-checkin" value="<?= $checkin ?>" name="checkin" class="datepicker input-control" disabled>
 										</div>
 										<div class="form-group">
 											<label class="label-control">Checkout<span>*</span></label>
-											<input type="text" value="<?= $checkout ?>" name="checkout" class="datepicker input-control" >
+											<input type="text" value="<?= $checkout ?>" name="checkout" class="datepicker input-control" disabled >
 										</div>
 										<div class="form-group">
 											<label class="label-control">Full name<span>*</span></label>

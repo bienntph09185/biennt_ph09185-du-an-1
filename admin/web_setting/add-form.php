@@ -82,14 +82,14 @@ $News = queryExecute($getNewsQuery, true);
                                 <label for="">Email<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="email">
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="">Mã Bảng tin</label>
                                 <select name="blog_news_id" class="form-control">
                                     <?php foreach ($News as $ro):?>
                                         <option value="<?= $ro['id'] ?>"><?= $ro['id'] ?></option>
                                     <?php endforeach?>
                                 </select>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="col-md-6">
                             <div class="row">

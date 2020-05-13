@@ -15,7 +15,7 @@ $getRoomQuery = "select * from room_types";
 $total_records = count(queryExecute($getRoomQuery, true));
 
 $limit = 3;
-// tổng số trang
+// tổng số trang làm tròn lên
 $total_page = ceil($total_records / $limit);
 
 // Tìm Start
@@ -103,9 +103,6 @@ $rooms = queryExecute($getRoomQuery, true);
 											<li><a href="<?= THEME_ASSET_URL ?>testimonial.php">Testimonials</a></li>
 											<li><a href="<?= THEME_ASSET_URL ?>shortcode.php">Shortcode</a></li>
 											<li><a href="<?= THEME_ASSET_URL ?>typography.php">Typography</a></li>
-											<li><a href="<?= THEME_ASSET_URL ?>booking-cart.php">Booking Cart</a></li>
-											<li><a href="<?= THEME_ASSET_URL ?>checkout.php">CheckOut</a></li>
-											<li><a href="<?= THEME_ASSET_URL ?>check-available.php">Check Available</a></li>
 										</ul>
 									</div>
 								</li>
@@ -361,7 +358,7 @@ $rooms = queryExecute($getRoomQuery, true);
                                             }
                                         }
 
-                                        // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                                        // nếu current_page < $total_page và total_page > 1 mới hiển thị nút next
                                         if ($current_page < $total_page && $total_page > 1) {
                                             echo '<li class="page-item"><a class="page-link" href="./index.php?page=' . ($current_page + 1) . '">Next</a></li>';
                                         }
@@ -394,7 +391,7 @@ $rooms = queryExecute($getRoomQuery, true);
 							<div class="hotel-contact">
 								<h3>Contact</h3>
 								<ul class="footer-content">
-									<li>telephone <span class="hotel-number">(012) 345-6789</span></li>
+									<li>telephone <span class="hotel-number"><?=$webSetting['phone_number']?></span></li>
 									<li>fax <span class="hotel-number">(012) 345-6789</span></li>
 									<li>reservations <span class="hotel-number">(012) 345-6789</span></li>
 								</ul>
@@ -447,12 +444,24 @@ $rooms = queryExecute($getRoomQuery, true);
 
 	<!-- Separate Javascript for each page -->
 	<script type="text/javascript" src="<?= THEME_ASSET_URL ?>/js/home.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
 	<script type="text/javascript">
 		$(function() {
 			"use strict";
 			$("#arrival-date, #departure-date").datepicker({});
 		});
+		 <?php if (isset($_GET['msg'])) : ?>
+                    Swal.fire({
+                        position: 'bottom-center',
+                        icon: 'warning',
+                        title: "<?= $_GET['msg']; ?>",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                <?php endif; ?>
 	</script>
+	
 </body>
 
 <!-- Mirrored from envato.megadrupal.com/html/flawleshotel/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 21 Mar 2020 05:47:48 GMT -->

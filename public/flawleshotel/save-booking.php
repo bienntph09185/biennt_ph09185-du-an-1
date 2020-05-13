@@ -18,23 +18,7 @@ $address = trim($_POST['address']);
 $message = trim($_POST['message']);
 $room_type = $room['id'];
 $check_in= trim($_POST['check_in']);
-/*
-$nameerr ="";
-$emailerr ="";
 
-if(strlen($customer_name)<2 || strlen($customer_name)>191){
-    $nameerr = "Yêu cầu nhập tên từ 2->191 ký tự";
-}
-if(strlen($email)==0){
-    $emailerr = "Yêu cầu nhập email";
-}
-if($emailerr=="" && !filter_var($email, FILTER_VALIDATE_EMAIL)){
-    $emailerr = "Yêu cầu nhập đúng định dạng email";
-}
-if($nameerr. $emailerr!=""){
-    header('location: '.BASE_URL."booking.php?nameerr=$nameerr&&emailerr=$emailerr");
-    die;
-}*/
 $insertBookQuery = "insert into booking
                                     (customer_name,email,address,checkin_date,checkout_date,adult_number,children_number,room_type_id,message,checkin_in)
                                 values
